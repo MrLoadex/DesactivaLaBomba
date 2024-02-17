@@ -5,6 +5,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
+public enum TipoObjetivo
+{
+    DesenchufarElectricidad,
+    DesifrarCodigo
+}
+
 public class LevelManager : MonoBehaviour
 {
     [Header("Configuracion de Nivel")]
@@ -20,6 +26,7 @@ public class LevelManager : MonoBehaviour
     private int actualTime;
 
     public static Action< Cable> EventoCortarCable;
+    public static Action<TipoObjetivo> EventoProgreso;
 
     //Estado de nivel
     private bool cableCortado;
@@ -95,6 +102,10 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("Perdiste ");
         Time.timeScale = 0f;
+        if(panelDerrota == null)
+        {
+            return;
+        }
         panelDerrota.SetActive(true);
         
     }
@@ -104,7 +115,8 @@ public class LevelManager : MonoBehaviour
 
         panelDerrota.SetActive(false);
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(0);
+        return;
     }
 
     private void ResponerEventoCortarCable(Cable cableCortado)
@@ -119,14 +131,35 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    private void ResponerEventoProgreso(TipoObjetivo tipo)
+    {
+        switch (tipo)
+        {
+            case TipoObjetivo.DesenchufarElectricidad:
+                electricidadCortada = true;
+                ActualizarProgreso();
+                break;
+                
+            case TipoObjetivo.DesifrarCodigo:
+                codigoDesifrado = true;
+                ActualizarProgreso();
+                break;
+
+            default:
+                break;
+        }
+    }
+
     private void OnEnable() 
     {
         EventoCortarCable += ResponerEventoCortarCable;
+        EventoProgreso += ResponerEventoProgreso;
     }
 
     private void OnDisable() 
     {
         EventoCortarCable += ResponerEventoCortarCable;
+        EventoProgreso -= ResponerEventoProgreso;
     }
     
     private IEnumerator DescontarTiempo()

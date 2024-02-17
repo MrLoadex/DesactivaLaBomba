@@ -8,6 +8,8 @@ public class Bomb : InteractuableObject
     [SerializeField] private GameObject bombCamera;
     [SerializeField] private GameObject botonDefuse;
 
+    private bool interactuando;
+
     private bool bombaPanelActivo;
 
     protected override void Update()
@@ -22,9 +24,30 @@ public class Bomb : InteractuableObject
         }
 
     }
-    
+
+    protected override void OnTriggerEnter(Collider other)
+    {
+        if(this.tag == "Bomba")
+        {
+            base.OnTriggerEnter(other);
+            interactuando = true;
+            return;
+        }
+    }
+
+    protected override void OnTriggerExit(Collider other)
+    {
+        base.OnTriggerExit(other);
+        interactuando = false;
+        return;
+    }
+
     protected override void Intaractuar()
     {
+        if (!interactuando)
+        {
+            return;
+        }
         player.SetActive(false);
         bombCamera.SetActive(true);
         botonDefuse.SetActive(true);

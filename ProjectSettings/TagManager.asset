@@ -12,6 +12,8 @@ TagManager:
   - button f1
   - button f6
   - Cable
+  - CableElectricidad
+  - Bomba
   layers:
   - Default
   - TransparentFX

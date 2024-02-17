@@ -23,7 +23,7 @@ public class InteractuableObject : MonoBehaviour
         Debug.Log("Interactuando");
     }
 
-    private void ActivarPanelInteraccion()
+    private void ActivarBotonInteraccion()
     {
         botonInteractuar.SetActive(true);
     }
@@ -33,16 +33,16 @@ public class InteractuableObject : MonoBehaviour
         botonInteractuar.SetActive(false);
     }
 
-    private void OnTriggerEnter(Collider other) 
+    protected virtual void OnTriggerEnter(Collider other) 
     {
         if( other.tag != "Player")
         {
             return;
         }
-        ActivarPanelInteraccion();
+        ActivarBotonInteraccion();
     }
 
-    private void OnTriggerExit(Collider other) 
+    protected virtual void OnTriggerExit(Collider other) 
     {
         if( other.tag != "Player")
         {

@@ -21,11 +21,13 @@ public class InteractionBomb : MonoBehaviour
     {
         hayCableSeleccionado = ComprobarColisionConCable();
         ComprobarInteraccion();
+        return;
     }
 
     public void SelectCable(Cable cablePorSeleccionar)
     {
         cableSeleccionado = cablePorSeleccionar;
+        return;
     }
 
     public void CutCable() 
@@ -37,6 +39,7 @@ public class InteractionBomb : MonoBehaviour
 
         cableSeleccionado.Cut();
         LevelManager.EventoCortarCable?.Invoke(cableSeleccionado);
+        return;
     }
 
     private bool ComprobarColisionConCable()
@@ -71,6 +74,8 @@ public class InteractionBomb : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             CutCable();
+            return;
         }
+        return;
     }
 }

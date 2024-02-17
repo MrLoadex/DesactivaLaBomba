@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level1Settings
   m_EditorClassIdentifier: 
   colorGanador: 0
-  CortarCable: 0
-  CortarElectricidad: 0
+  CortarCable: 1
+  CortarElectricidad: 1
   DesifrarCodigo: 0
   nextSceneName: Level2

@@ -40,4 +40,15 @@ public class PlayerMovement : MonoBehaviour
         // Asegurarse de que la cámara esté siempre mirando hacia el jugador
         //playerCamera.transform.LookAt(transform);
     }
+
+    private void OnEnable()
+    {
+        Cursor.visible = false;
+    }
+
+    private void OnDisable()
+    {
+        Cursor.visible = true;
+        
+    }
 }
