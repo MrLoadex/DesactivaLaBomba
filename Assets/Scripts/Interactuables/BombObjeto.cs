@@ -2,25 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bomb : InteractuableObject
+public class BombObjeto : InteractuableObject
 {
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject bombCamera;
     [SerializeField] private GameObject botonDefuse;
+    [SerializeField] private InteractionBomb bombScript;
 
     private bool interactuando;
 
     private bool bombaPanelActivo;
+
+    private void Start() 
+    {
+        bombScript.enabled = false;
+    }
 
     protected override void Update()
     {
         if (!bombaPanelActivo)
         {
             base.Update();
+            bombScript.enabled = true;
         }
-        else if (Input.GetKeyDown(KeyCode.E))
+        else if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape))
         {
             DesactivarPanelBomba();
+            bombScript.enabled = false;
         }
 
     }

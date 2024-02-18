@@ -32,13 +32,11 @@ public class PlayerMovement : MonoBehaviour
         float anguloRotacionVertical = transform.GetChild(0).transform.eulerAngles.x + rotacionVertical;
 
         // Limitar la rotación vertical entre -90 y 90 grados
-        anguloRotacionVertical = Mathf.Clamp(anguloRotacionVertical, -90f, 90f);
+        anguloRotacionVertical = Mathf.Clamp(anguloRotacionVertical, -120f, 900f);
 
         // Aplicar rotación vertical a la cámara
-        //transform.GetChild(0).transform.eulerAngles = new Vector3(anguloRotacionVertical, transform.eulerAngles.y, 0f);
+        transform.GetChild(0).transform.eulerAngles = new Vector3(anguloRotacionVertical, transform.eulerAngles.y, 0f);
 
-        // Asegurarse de que la cámara esté siempre mirando hacia el jugador
-        //playerCamera.transform.LookAt(transform);
     }
 
     private void OnEnable()

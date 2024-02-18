@@ -14,6 +14,8 @@ public enum ColorCable
 public class LevelSettings : ScriptableObject
 {
     public ColorCable colorGanador;
+    public int codigoGanador;
+    public int tiempoMaximo;
 
     [Header("Objetivos Para Ganar")]
     
@@ -23,4 +25,5 @@ public class LevelSettings : ScriptableObject
 
     [Header("Siguiente Escena")]
     public string nextSceneName;
+    public LevelSettings nextLvlSettings;
 }

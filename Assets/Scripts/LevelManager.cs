@@ -22,11 +22,12 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerTMP;
 
     [Header("Timer en Segundos")]
-    [SerializeField] private int maxTime;
+    private int maxTime;
     private int actualTime;
 
     public static Action< Cable> EventoCortarCable;
     public static Action<TipoObjetivo> EventoProgreso;
+    public static Action EventoPerder;
 
     //Estado de nivel
     private bool cableCortado;
@@ -55,6 +56,7 @@ public class LevelManager : MonoBehaviour
             listoParaGanar = true;
         }
 
+        maxTime = levelSettings.tiempoMaximo;
         actualTime = maxTime;
         StartCoroutine(DescontarTiempo());
     }
@@ -95,6 +97,9 @@ public class LevelManager : MonoBehaviour
     private void GanarNivel()
     {
         Debug.Log("Ganaste!");
+        
+        levelSettings.nextLvlSettings.tiempoMaximo = actualTime;
+
         SceneManager.LoadScene(levelSettings.nextSceneName);
     }
 
@@ -154,12 +159,14 @@ public class LevelManager : MonoBehaviour
     {
         EventoCortarCable += ResponerEventoCortarCable;
         EventoProgreso += ResponerEventoProgreso;
+        EventoPerder += PerderNivel;
     }
 
     private void OnDisable() 
     {
-        EventoCortarCable += ResponerEventoCortarCable;
+        EventoCortarCable -= ResponerEventoCortarCable;
         EventoProgreso -= ResponerEventoProgreso;
+        EventoPerder -= PerderNivel;
     }
     
     private IEnumerator DescontarTiempo()

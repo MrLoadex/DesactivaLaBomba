@@ -15,6 +15,9 @@ public class InteractionBomb : MonoBehaviour
     [SerializeField] private Cable cableVerde;
     [SerializeField] private Cable cableGris;
 
+    [Header("Camara Principal")]
+    [SerializeField] private Camera camara;
+
     private Cable cableSeleccionado;
 
     void Update()
@@ -45,7 +48,7 @@ public class InteractionBomb : MonoBehaviour
     private bool ComprobarColisionConCable()
     {
         // Lanzar un rayo desde la posición del mouse hacia abajo en el eje Y
-        Ray rayo = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray rayo = camara.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
 
         if (Physics.Raycast(rayo, out hitInfo, Mathf.Infinity, capaCable))

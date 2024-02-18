@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CableElectricidad : InteractuableObject
+public class CableElectricidadObjeto : InteractuableObject
 {
     [SerializeField] private GameObject cableDesconectadoGO;
     [SerializeField] private GameObject cableConectadoGO;
