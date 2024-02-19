@@ -17,6 +17,6 @@ MonoBehaviour:
   tiempoMaximo: 300
   CortarCable: 1
   CortarElectricidad: 1
-  DesifrarCodigo: 1
+  DesifrarCodigo: 0
   nextSceneName: Level2
-  nextLvlSettings: {fileID: 0}
+  nextLvlSettings: {fileID: 11400000, guid: 01180c7a0b926074296b7dd55c9f7f77, type: 2}

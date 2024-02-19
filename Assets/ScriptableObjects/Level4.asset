@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorGanador: 1
   codigoGanador: 321
-  tiempoMaximo: 276
+  tiempoMaximo: 263
   CortarCable: 1
   CortarElectricidad: 1
   DesifrarCodigo: 1
-  nextSceneName: Level5
-  nextLvlSettings: {fileID: 0}
+  nextSceneName: WinLevel
+  nextLvlSettings: {fileID: 11400000}
