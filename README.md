@@ -21,9 +21,9 @@ Bienvenido/a a "Bomba Blitz", un prototipo entretenido y de resolucion de puzles
 
 ## Capturas de Pantalla
 
-![Captura de pantalla 1](https://img.itch.zone/aW1hZ2UvMjUzODAyNy8xNTEwODg5MS5wbmc=/original/uLjScr.png)
-![Captura de pantalla 2](https://img.itch.zone/aW1hZ2UvMjUzODAyNy8xNTEwODkxMS5wbmc=/original/AMn4MP.png)
-![Captura de pantalla 3](https://img.itch.zone/aW1hZ2UvMjUzODAyNy8xNTEwODkyOC5wbmc=/original/yAXckY.png)
+![Level 1](https://img.itch.zone/aW1hZ2UvMjUzODAyNy8xNTEwODg5MS5wbmc=/original/uLjScr.png)
+![Level 1](https://img.itch.zone/aW1hZ2UvMjUzODAyNy8xNTEwODkxMS5wbmc=/original/AMn4MP.png)
+![Level 1](https://img.itch.zone/aW1hZ2UvMjUzODAyNy8xNTEwODkyOC5wbmc=/original/yAXckY.png)
 
 ## Agradecimientos
 
